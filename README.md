@@ -23,4 +23,4 @@ Whenever you are in a game, and a song advances from the guessing phase to the a
 
 ## 3. What we do with the information
 
-The data is simply used to show each user which songs they've encountered and how many times they have gotten them right or wrong. 
+The data is simply used to show each user which songs they've encountered and how many times they have gotten them right or wrong. The videos/mp3's can be viewed for the user to study.
