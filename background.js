@@ -1,3 +1,7 @@
+chrome.commands.onCommand.addListener(function (command) {
+  window.open(`https://animemusicquiz.com`);
+});
+
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.set({ tracking: true, username: '' }, () => {
     console.log(`Initialized tracking to true and username to ''`);

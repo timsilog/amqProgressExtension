@@ -10,12 +10,13 @@ const getProgress = async () => {
   if (!username) {
     console.log(`Couldn't find username`);
   }
+
   const players = document.querySelectorAll('.qpAvatarContainer')
   for (const player of players) {
     if (player.querySelector('.qpAvatarNameContainer').innerText === username) {
       const anime = document.querySelector('#qpAnimeName').innerText;
       const guess = document.querySelector('.qpAvatarAnswerText').innerText;
-      const isCorrect = document.querySelector('.qpAvatarAnswerContainer').classList[1];
+      const isCorrect = player.querySelector('.qpAvatarAnswerContainer').classList[1];
       const songName = document.querySelector('#qpSongName').innerText;
       const songArtist = document.querySelector('#qpSongArtist').innerText;
       const songType = document.querySelector('#qpSongType').innerText;
@@ -25,6 +26,16 @@ const getProgress = async () => {
         console.log(`Couldn't find you`);
         return;
       }
+      console.log({
+        username,
+        anime,
+        guess,
+        isCorrect,
+        songName,
+        songArtist,
+        songType,
+        songLink,
+      });
       const options = {
         method: 'POST',
         headers: {
@@ -54,7 +65,6 @@ const mutationObserver = new MutationObserver(async (mutations) => {
     if (mutation.target.classList.contains('hide')) {
       chrome.storage.sync.get(['tracking'], val => {
         if (val.tracking) {
-          console.log('getting');
           getProgress();
         }
       })

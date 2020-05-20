@@ -28,6 +28,7 @@ const checkEnter = e => {
 
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#toggle-button').addEventListener('click', toggleClick, false);
+  document.querySelector('#amq-link').addEventListener('click', () => window.open('https://animemusicquiz.com'), false);
   document.querySelector('#progress-button').addEventListener('click', progressClick, false);
   document.querySelector('#username').addEventListener('keyup', checkEnter, false);
   chrome.storage.sync.get(['username'], val => {
