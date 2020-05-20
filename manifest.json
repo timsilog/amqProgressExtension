@@ -37,13 +37,7 @@
       "suggested_key": {
         "default": "Ctrl+Shift+A"
       },
-      "description": "Opens the pop up"
-    },
-    "open_amq_site": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+S"
-      },
-      "description": "Opens the AMQ Website"
+      "description": "Opens the extension pop up"
     }
   }
 }
