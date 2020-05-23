@@ -31,6 +31,24 @@ body {
   height: 35%;
 }
 
+textarea {
+  resize: none;
+  width: 130px;
+  height: 1.2em;
+  border-radius: 3px;
+}
+
+#progress-button {
+  padding: 5px;
+  box-shadow: 3px 3px 3px -3px black;
+  display: flex;
+  text-align: center;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
 a {
   color: lightcoral;
   text-decoration: none;

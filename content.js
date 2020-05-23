@@ -1,14 +1,22 @@
 console.log("Extension Connected");
 
+let un;
+
 const getProgress = async () => {
-  let username;
-  username = document.querySelector('.self').innerText;
-  chrome.runtime.sendMessage({
-    action: "updateUsername",
-    username
-  }, res => console.log(res.msg));
+  let username = document.querySelector('.self').innerText;
+  if (!un || un !== username) {
+    un = username;
+    chrome.runtime.sendMessage({
+      action: "updateUsername",
+      username
+    }, res => console.log(res.msg));
+  }
   if (!username) {
     console.log(`Couldn't find username`);
+    if (!un) {
+      return;
+    }
+    username = un;
   }
 
   const players = document.querySelectorAll('.qpAvatarContainer')
@@ -22,20 +30,11 @@ const getProgress = async () => {
       const songType = document.querySelector('#qpSongType').innerText;
       const songLink = document.querySelector('#qpSongVideoLink').href;
       const url = 'https://serene-temple-88689.herokuapp.com/updateProgress';
+      // const url = 'http://localhost:4000/updateProgress';
       if (!username) {
         console.log(`Couldn't find you`);
         return;
       }
-      console.log({
-        username,
-        anime,
-        guess,
-        isCorrect,
-        songName,
-        songArtist,
-        songType,
-        songLink,
-      });
       const options = {
         method: 'POST',
         headers: {
@@ -53,23 +52,23 @@ const getProgress = async () => {
           isCorrect: isCorrect === 'wrongAnswer' ? false : true
         })
       };
-      const response = await fetch(url, options);
-      console.log(response);
+      fetch(url, options);
       break;
     }
   }
 }
 
 const mutationObserver = new MutationObserver(async (mutations) => {
-  mutations.forEach(async (mutation) => {
+  for (mutation of mutations) {
     if (mutation.target.classList.contains('hide')) {
       chrome.storage.sync.get(['tracking'], val => {
         if (val.tracking) {
           getProgress();
         }
-      })
+      });
+      break;
     }
-  });
+  }
 });
 
 try {

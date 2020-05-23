@@ -4,6 +4,13 @@ chrome.runtime.onInstalled.addListener(() => {
   })
 });
 
+chrome.commands.onCommand.addListener(function (command) {
+  console.log(command);
+  if (command === 'open_amq') {
+    window.open('https://animemusicquiz.com');
+  }
+});
+
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
   if (msg.action === "updateIcon") {
     if (msg.value) {

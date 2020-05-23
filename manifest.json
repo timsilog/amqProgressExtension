@@ -1,6 +1,7 @@
 {
   "name": "AMQ Progress Tracker",
-  "version": "1.1.0",
+  "short_name": "AMQ Study",
+  "version": "1.2.0",
   "manifest_version": 2,
   "description": "A progress tracker for Anime Music Quiz",
   "icons": {
@@ -38,6 +39,12 @@
         "default": "Ctrl+Shift+A"
       },
       "description": "Opens the extension pop up"
+    },
+    "open_amq": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Opens the amq website"
     }
   }
 }
