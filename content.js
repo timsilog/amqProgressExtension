@@ -4,6 +4,10 @@ let un;
 
 const getProgress = async () => {
   let username = document.querySelector('.self').innerText;
+  if (!username) {
+    console.log(`Couldn't find you`);
+    return;
+  }
   if (!un || un !== username) {
     un = username;
     chrome.runtime.sendMessage({
@@ -31,10 +35,6 @@ const getProgress = async () => {
       const songLink = document.querySelector('#qpSongVideoLink').href;
       const url = 'https://serene-temple-88689.herokuapp.com/updateProgress';
       // const url = 'http://localhost:4000/updateProgress';
-      if (!username) {
-        console.log(`Couldn't find you`);
-        return;
-      }
       const options = {
         method: 'POST',
         headers: {

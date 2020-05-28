@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.set({ tracking: true, username: '' }, () => {
-    console.log(`Initialized tracking to true and username to ''`);
+    console.log(`Initialized tracking to true and user to ''`);
   })
 });
 
@@ -29,3 +29,15 @@ chrome.runtime.onMessage.addListener(
     }
   }
 );
+
+// chrome.runtime.onMessage.addListener(
+//   (request, sender, sendResponse) => {
+//     if (request.action === "getUn") {
+//       console.log(`Sending ${un}`);
+//       sendResponse({ response: un });
+//     } else if (request.action === "setUn") {
+//       console.log(`Set un to :${request.un}`)
+//       un = request.un;
+//     }
+//   }
+// );
