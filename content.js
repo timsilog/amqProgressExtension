@@ -27,7 +27,7 @@ const getProgress = async () => {
   for (const player of players) {
     if (player.querySelector('.qpAvatarNameContainer').innerText === username) {
       const anime = document.querySelector('#qpAnimeName').innerText;
-      const guess = document.querySelector('.qpAvatarAnswerText').innerText;
+      const guess = player.querySelector('.qpAvatarAnswerText').innerText;
       const isCorrect = player.querySelector('.qpAvatarAnswerContainer').classList[1];
       const songName = document.querySelector('#qpSongName').innerText;
       const songArtist = document.querySelector('#qpSongArtist').innerText;

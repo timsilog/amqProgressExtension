@@ -1,7 +1,7 @@
 {
   "name": "AMQ Progress Tracker",
   "short_name": "AMQ Study",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "manifest_version": 2,
   "description": "A progress tracker for Anime Music Quiz",
   "icons": {
